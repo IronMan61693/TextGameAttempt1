@@ -1,0 +1,87 @@
+NOTES for game
+
+Current project:
+	-Random generation
+		-I could make a dictionary of all of the tile types I want in the area
+		-The key will be the name of the tile to be used and the value is how many
+		-Of that tile I want to be placed
+		-Furthermore I can have a function called generate which uses probability to place the next tile
+		-Upon placing the tile the value goes down, I would either
+			-Need a check once it is picked to ensure the value is at least 1
+			-Or remove the key from the dictionary when the value hits 0 so it is not even an option
+				-I could just use for ___ in tileDict but I don't know how I could weight which tiles will be placed
+				-Maybe I don't and just allow any tile that is left to be placed next to any tile.
+				-Would this lead to too difficult enemies being placed near the beginning.
+					-Maybe I have which tile set is used change when the previous tile set is finished
+					-I could have multiple dictionaries with varying difficulty of enemies which can be drawn from.
+					-Furthermore I can have more tiles in a dictionary than will be used which means there is not
+					- always a guarantee that every tile will be placed. Basically have a count and as the count moves
+					- have which dictionary is drawn from change. 
+
+		-Each dictionary should have:
+			-One boss
+			-One nice loot
+			-One vendor NPC
+			-One Nemesis NPC
+			-Several blank tiles
+			-A way out tile
+			-Lots of enemy tiles
+			-Some difficulty appropriate gear tiles
+
+		-Have two dictionaries one which holds the possible tiles, and one that is the tiles used
+			-Have the tile themselves hold the x,y coordinates, the player class can hold its xy
+			- Then if the player moves I can check if there is a key x,y in the dictionary and if there is
+			- Use that instances, otherwise generate one of the random tiles from the first dict
+
+General:
+	-Add difficulty
+		-More HP
+		-Hit harder
+		-Vender buys items for less of its value
+	-Make gold useful
+	-A few NPCs
+
+Combat:
+	-More options than attack
+	-Armor
+	-Different weapon types have different attack options
+	-Weapons get damage ranges random.range(a,b) where a and b are the min and max dmg
+		-Likewise enemies should get damage ranges
+	-Add health potions
+	-Dnd style turn by turn
+		-Make different attacks do things from attack harder to have more accuracy
+	-More enemy types
+		-Skeletons (multiple enemies determined by hp, and damage depends on number of enemies)
+	-Resistance/Armor
+	-Shield vs 2 hand
+	-Introduce bow but discard it
+
+
+Map:
+	-Randomize the map
+	-Add different levels
+		-Next to the end of each level have a item buyer and seller
+	-Roaming enemy
+
+Loot:
+	-Variable loot
+	-More items
+	-Weapons with more stats
+		-Damage
+		-Accuracy
+		-Armor penetration
+	-Chest with random item
+		-Potential mimic enemy
+
+Player:
+	-XP
+	-Gold purse
+	-Health regen
+	-Have a weapon equiped
+	-Choose armor
+		-Different armor will be better/have different resistances
+
+Down the road
+	-Magic
+		-MP
+		-Learn spells from items

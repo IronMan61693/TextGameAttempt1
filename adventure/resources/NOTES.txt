@@ -1,0 +1,64 @@
+NOTES for game
+
+Current project:
+	-I will have a dictionary containing all types of tile possible, 
+	-As list pops items I will append a new item from the dictionary
+		-Difficulty will be dealt with as tiles are placed I will have a counter
+		-At a certain interval (say 10) I will increase the difficulty
+	-Increasing the difficulty will make the enemy more difficult and change the damage 
+	- of the weapons and the value of the items and gold
+
+
+General:
+	-Add difficulty
+		-More HP
+		-Hit harder
+		-Vender buys items for less of its value
+	-Make gold useful
+	-A few NPCs
+	-Upon ending map showing where they went
+
+Combat:
+	-More options than attack
+	-Armor
+	-Different weapon types have different attack options
+	-Weapons get damage ranges random.range(a,b) where a and b are the min and max dmg
+		-Likewise enemies should get damage ranges
+	-Add health potions
+	-Dnd style turn by turn
+		-Make different attacks do things from attack harder to have more accuracy
+	-More enemy types
+		-Skeletons (multiple enemies determined by hp, and damage depends on number of enemies)
+	-Resistance/Armor
+	-Shield vs 2 hand
+	-Introduce bow but discard it
+
+
+Map:
+	-Randomize the map
+	-Add different levels
+		-Next to the end of each level have a item buyer and seller
+	-Roaming enemy
+
+Loot:
+	-Variable loot
+	-More items
+	-Weapons with more stats
+		-Damage
+		-Accuracy
+		-Armor penetration
+	-Chest with random item
+		-Potential mimic enemy
+
+Player:
+	-XP
+	-Gold purse
+	-Health regen
+	-Have a weapon equiped
+	-Choose armor
+		-Different armor will be better/have different resistances
+
+Down the road
+	-Magic
+		-MP
+		-Learn spells from items
