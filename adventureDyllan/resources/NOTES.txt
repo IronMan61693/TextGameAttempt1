@@ -1,0 +1,46 @@
+NOTES for game
+
+Current project:
+	-Change baseclass of enemies
+
+
+General:
+	-Student dropped into a school
+	-As move around run into different types of problems
+
+Combat:
+	-Question is read
+	-Text box appears with either possible multiple choice or use python read to input a typed value (arithmetic)
+
+
+Map:
+	-Generates either a helpful room or question/enemy room
+	-If fail question drop to another location, (How could I do that, random x,y maybe?)
+
+
+
+Loot:
+	-An item tracking which tiles have been taken on and their success defeats
+	-An item which is the total number of tiles attempted
+	-Healthpot item (increase player guesses left)
+	-Hint item (Sets hint to on for enemy class)
+	
+Enemy:
+	-The enemies will be one of several different enemy types
+		-Algebra/Arithmetic
+		-Pattern recognition
+		-Geometry
+		-Reading Analysis
+		-Science?
+	-Each enemy will have:
+		-Number of guess attempts (1-3) depends on type
+		-A hint option if a hint item is used
+	-Later give xp or an item on defeat
+
+Player:
+	-Health will be decremented when an enemy 'defeats' the player
+	-Flee is now used as an item
+	
+
+Down the road
+	
