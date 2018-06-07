@@ -9,7 +9,7 @@ _world = {}
 # pulled from while generating the world
 # This lets me initialize the new_world list
 new_world = []
-new_world.extend(["FillInRoom"]*1)
+new_world.extend(["Find5GoldRoom"]*1)
 # new_world.extend(["EmptyCavePath"]*2)
 # new_world.extend(["RandomAdditionMathQuestionRoom"]*2)
 # new_world.extend(["RandomSubtractionMathQuestionRoom"]*2)

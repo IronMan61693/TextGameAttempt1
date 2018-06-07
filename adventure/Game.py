@@ -41,6 +41,7 @@ def play():
 		if not player.is_alive():
 			
 			print("GAME OVER!!!!!\n")
+			print("You made it {} tiles this attempt!".format(World.how_many_tile()))
 
 		# Chack the player's state
 		if player.is_alive() and not player.victory:

@@ -30,11 +30,18 @@ class Player():
 
 	"""
 	def __init__(self):
-		self.inventory = [Items.Gold(15), Items.Fist()]
+		self.my_coin_pouch = Items.CoinPouch()
+		self.my_coin_pouch.add_to_me("Gold", 15)
+		self.inventory = [self.my_coin_pouch, Items.Fist()]
 		self.hp = 100
 		self.location_x, self.location_y =  World.starting_position
 		self.victory = False
 
+
+
+	def add_to_pouch(self, coin_name, coin_value):
+		self.my_coin_pouch.add_to_me(coin_name, coin_value)
+		
 
 
 	def is_alive(self):
@@ -54,6 +61,9 @@ class Player():
 		Output:
 			print statement
 		"""
+		print("You have beaten {} tiles!".format(World.how_many_tile()))
+		print("You have {} HP remaining".format(self.hp))
+
 		for item in self.inventory:
 			print(item, '\n')
 

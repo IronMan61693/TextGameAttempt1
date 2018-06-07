@@ -184,6 +184,51 @@ class LootRoom(MapTile):
 
 
 
+class LootCoinRoom(MapTile):
+	"""
+	A subclass of MapTile, a room containing loot
+
+	Variables:
+		x <int>
+		y <int>
+		item <Item>
+
+	Methods:
+		add_loot(player) appends loot item to player invetory
+		modify_player(player) calls add_loot method
+	"""
+	def __init__(self, x, y, coin):
+		"""
+		Input:
+			x <int>
+			y <int>
+			coin <Item>
+		"""
+		self.coin = coin
+		super().__init__(x,y)
+
+	def add_loot(self, player):
+		"""
+		Adds loot to player inventory
+
+		Input:
+			player <Player>
+		"""
+		if self.coin.is_looted():
+			pass
+
+		else:
+			player.add_to_pouch(self.coin.name, self.coin.value)
+			self.coin.set_looted()
+
+	def modify_player(self, player):
+		"""
+		Calls add_loot method
+		"""
+		self.add_loot(player)
+
+
+
 class EnemyRoom(MapTile):
 	"""
 	A subclass of MapTile, contains an enemy
@@ -198,18 +243,16 @@ class EnemyRoom(MapTile):
 		modify_player() Enemy attacks the player
 		available_actions() adds some actions to be available to use for the player
 	"""
-	def __init__(self, x, y, enemy, difficulty):
+	def __init__(self, x, y, enemy):
 		"""
 		Input:
 			x <int>
 			y <int>
 			enemy <Enemy>
-			difficulty <int>
 		Output:
 			None
 		"""
 		self.enemy = enemy 
-		self.difficulty = difficulty
 		super().__init__(x, y)
 
 	def modify_player(self, the_player):
@@ -283,7 +326,7 @@ class GiantSpiderRoom(EnemyRoom):
 		modify_player() Enemy attacks the player
 	"""
 	def __init__(self, x, y):
-		super().__init__(x,y,Enemies.GiantSpider(),difficulty)
+		super().__init__(x,y,Enemies.GiantSpider())
 
 	def intro_text(self):
 		"""
@@ -315,7 +358,7 @@ class OgreRoom(EnemyRoom):
 		modify_player() Enemy attacks the player
 	"""
 	def __init__(self,x,y):
-		super().__init__(x,y,Enemies.Ogre(),difficulty)
+		super().__init__(x,y,Enemies.Ogre())
 
 	def intro_text(self):
 		"""
@@ -370,7 +413,7 @@ class FindDaggerRoom(LootRoom):
 
 
 
-class Find5GoldRoom(LootRoom):
+class Find5GoldRoom(LootCoinRoom):
 	"""
 	A subclass of LootRoom, contains 5 gold
 
@@ -391,7 +434,7 @@ class Find5GoldRoom(LootRoom):
 		Output: 
 			intro_description <str>
 		"""
-		if (self.item.is_looted()):
+		if (self.coin.is_looted()):
 
 			intro_description = ("You think there was once some gold in here\n")
 		else:

@@ -30,10 +30,17 @@ class Player():
 
 	"""
 	def __init__(self):
-		self.inventory = [Items.Gold(15)]
+		self.my_gold_pouch = Items.GoldPouch(15)
+		self.inventory = [self.my_gold_pouch]
 		self.guesses_remaining = 1
 		self.location_x, self.location_y =  World.starting_position
 		self.victory = False
+
+
+
+	def add_to_pouch(self, coin_value):
+		self.my_gold_pouch.add_to_me(coin_value)
+
 
 
 
@@ -44,6 +51,7 @@ class Player():
 		Output <bool>
 		"""
 		return self.guesses_remaining > 0
+
 
 
 

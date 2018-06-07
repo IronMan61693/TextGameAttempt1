@@ -184,6 +184,52 @@ class LootRoom(MapTile):
 
 
 
+
+class LootCoinRoom(MapTile):
+	"""
+	A subclass of MapTile, a room containing loot
+
+	Variables:
+		x <int>
+		y <int>
+		item <Item>
+
+	Methods:
+		add_loot(player) appends loot item to player invetory
+		modify_player(player) calls add_loot method
+	"""
+	def __init__(self, x, y, coin):
+		"""
+		Input:
+			x <int>
+			y <int>
+			coin <Item>
+		"""
+		self.coin = coin
+		super().__init__(x,y)
+
+	def add_loot(self, player):
+		"""
+		Adds loot to player inventory
+
+		Input:
+			player <Player>
+		"""
+		if self.coin.is_looted():
+			pass
+
+		else:
+			player.add_to_pouch(self.coin.value)
+			self.coin.set_looted()
+
+	def modify_player(self, player):
+		"""
+		Calls add_loot method
+		"""
+		self.add_loot(player)
+
+
+
 class EnemyRoom(MapTile):
 	"""
 	A subclass of MapTile, contains an enemy
@@ -498,7 +544,7 @@ class FillInRoom(EnemyRoom):
 
 
 
-class Find5GoldRoom(LootRoom):
+class Find5GoldRoom(LootCoinRoom):
 	"""
 	A subclass of LootRoom, contains 5 gold
 
@@ -519,7 +565,7 @@ class Find5GoldRoom(LootRoom):
 		Output: 
 			intro_description <str>
 		"""
-		if (self.item.is_looted()):
+		if (self.coin.is_looted()):
 
 			intro_description = ("You think there was once some gold in here\n")
 		else:

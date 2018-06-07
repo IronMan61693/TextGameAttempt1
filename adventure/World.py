@@ -74,27 +74,15 @@ def pick_new_tile():
 
 	new_world.append(add_to_list[0])
 
+	global tile_count
+
 	tile_count += 1
 
 	return new_tile_name
 
 
-
-def difficulty_modifier(tile_counter):
-	"""
-	This will be used to track the difficulty of the tiles added
-	It will compare how many tiles have been placed 
-
-	Input:
-		tile_counter <int>
-
-	Output:
-		difficulty_scale <int>
-	"""
-	# This ups the difficulty every 5 tiles placed
-	# I want the difficulty to start at 1 and go up hence the plus 1
-	difficulty_scale = tile_counter // 5 +1
-	return difficulty_scale
+def how_many_tile():
+	return tile_count
 
 
 

@@ -77,6 +77,25 @@ class Gold(Item):
 						 description = "A round shiny coin with {} stamped on the front".format(str(self.amt)),
 						 value = self.amt)
 
+class CoinPouch(Item):
+	"""
+	TBD Change all values to reflect copper silver and gold
+	"""
+
+	def __init__(self):
+		self.coins = {"Copper" : 0, "Silver" : 0, "Gold" : 0}
+
+		super().__init__(name = "Coin Pouch",
+						 description =  "A pouch containing {} copper pieces, {} silver pieces,"\
+						 				" and {} gold.".format(self.coins["Copper"], self.coins["Silver"], self.coins["Gold"]),
+						 value = 0)
+
+	def add_to_me(self, coin_name, new_amt):
+		self.coins[coin_name] += new_amt
+		self.description =  "A pouch containing {} copper pieces, {} silver pieces,"\
+						 	" and {} gold.".format(self.coins["Copper"], self.coins["Silver"], self.coins["Gold"])
+		# TBD have a value
+
 
 
 class Weapon(Item):

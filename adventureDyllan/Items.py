@@ -1,3 +1,6 @@
+import createPlayer
+
+
 class Item():
 	"""
 	The base class for all items in the game
@@ -76,6 +79,24 @@ class Gold(Item):
 		super().__init__(name = "Gold",
 						 description = "A round shiny coin with {} stamped on the front".format(str(self.amt)),
 						 value = self.amt)
+
+
+
+
+class GoldPouch(Item):
+
+	def __init__(self, amt):
+
+		self.amt = amt
+		super().__init__(name = "Gold Pouch",
+						 description = "A pouch containing {} gold pieces.".format(str(self.amt)),
+						 value = self.amt)
+
+	def add_to_me(self, new_amt):
+		self.amt += new_amt
+		self.description = "A pouch containing {} gold pieces.".format(str(self.amt))
+		self.value = self.amt
+
 
 
 

@@ -38,17 +38,6 @@ class Enemy:
 		"""
 		return self.hp > 0
 
-	def set_difficulty(self, difficulty):
-		"""
-		This scales the enemies by the difficulty input
-		
-		Input:
-			difficulty <int>
-		"""
-
-		self.hp = self.hp * (1 + (.1 * difficulty))
-		self.damage = self.damage * (1 + (.1 * difficulty))
-
 
 
 class GiantSpider(Enemy):
